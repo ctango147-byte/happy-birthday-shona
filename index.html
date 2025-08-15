@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Password Required</title>
+<style>
+    body {
+        margin: 0;
+        font-family: 'Segoe UI', sans-serif;
+        background: linear-gradient(to right, #ffdde1, #ee9ca7);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        color: white;
+    }
+    .container {
+        text-align: center;
+        background: rgba(255,255,255,0.1);
+        padding: 30px;
+        border-radius: 15px;
+        box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+    }
+    input {
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+        width: 200px;
+        text-align: center;
+        font-size: 1rem;
+    }
+    button {
+        padding: 10px 20px;
+        margin-top: 15px;
+        border: none;
+        border-radius: 5px;
+        background: #ff6699;
+        color: white;
+        font-size: 1rem;
+        cursor: pointer;
+    }
+    button:hover {
+        background: #ff3366;
+    }
+    .hint {
+        margin-top: 10px;
+        font-size: 0.9rem;
+        opacity: 0.8;
+    }
+</style>
+</head>
+<body>
+    <div class="container">
+        <h2>🔒 Enter Password</h2>
+        <input type="password" id="password" placeholder="Password">
+        <br>
+        <button onclick="checkPassword()">Submit</button>
+        <div class="hint">💡 Hint: My nickname</div>
+    </div>
+
+    <script>
+        function checkPassword(){
+            let pass = document.getElementById("password").value;
+            if(pass === "baccha"){
+                // Store a flag so music can autoplay
+                localStorage.setItem("playMusic", "true");
+                window.location.href = "birthday.html";
+            } else {
+                alert("Wrong password! Try again.");
+            }
+        }
+    </script>
+</body>
+</html>
