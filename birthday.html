@@ -14,23 +14,27 @@
         text-align: center;
     }
     nav {
-        background: rgba(255,255,255,0.2);
-        padding: 10px;
+        background: rgba(255,255,255,0.15);
+        padding: 12px;
         display: flex;
         justify-content: center;
-        gap: 20px;
+        gap: 25px;
         font-weight: bold;
+        backdrop-filter: blur(6px);
     }
     nav a {
         color: white;
         text-decoration: none;
-        padding: 8px 15px;
-        border-radius: 8px;
-        background: rgba(0,0,0,0.2);
-        transition: 0.3s;
+        padding: 10px 20px;
+        border-radius: 30px;
+        background: linear-gradient(135deg, #ff6699, #ff3366);
+        box-shadow: 0 0 10px rgba(255,102,153,0.8);
+        transition: all 0.3s ease-in-out;
+        font-size: 1.1rem;
     }
     nav a:hover {
-        background: rgba(255,255,255,0.3);
+        transform: scale(1.15);
+        box-shadow: 0 0 20px rgba(255,102,153,1), 0 0 30px rgba(255,51,102,0.9);
     }
     h1 {
         font-size: 3rem;
@@ -47,12 +51,11 @@
     p {
         font-size: 1.2rem;
         margin: 20px auto;
-        max-width: 800px;
+        max-width: 600px;
         background: rgba(255,255,255,0.2);
-        padding: 20px;
+        padding: 15px;
         border-radius: 15px;
         box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-        line-height: 1.5;
     }
     @keyframes glow {
         from { text-shadow: 0 0 10px #ff99bb, 0 0 20px #ff6699; }
@@ -61,50 +64,28 @@
     .gallery {
         display: none;
         margin-top: 20px;
+        animation: fadeIn 0.5s ease-in-out;
     }
     .gallery img {
-        width: 150px;
-        height: 150px;
+        width: 160px;
+        height: 160px;
         object-fit: cover;
-        margin: 10px;
-        border-radius: 10px;
+        margin: 12px;
+        border-radius: 15px;
+        border: 4px solid transparent;
+        background-image: linear-gradient(white, white), linear-gradient(135deg, #ff99cc, #ff6699);
+        background-origin: border-box;
+        background-clip: content-box, border-box;
         box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-        transition: transform 0.3s;
-        cursor: pointer;
+        transition: transform 0.3s, box-shadow 0.3s;
     }
     .gallery img:hover {
         transform: scale(1.1);
+        box-shadow: 0 0 20px rgba(255,102,153,1), 0 0 30px rgba(255,51,102,0.9);
     }
-
-    /* Lightbox */
-    #lightbox {
-        position: fixed;
-        top: 0; left: 0;
-        width: 100%; height: 100%;
-        background: rgba(0,0,0,0.9);
-        display: none;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-        z-index: 1000;
-    }
-    #lightbox img {
-        max-width: 90%;
-        max-height: 80%;
-        border-radius: 10px;
-        box-shadow: 0 5px 20px rgba(255,255,255,0.5);
-    }
-    #lightbox span {
-        color: white;
-        margin-top: 15px;
-        font-size: 18px;
-        cursor: pointer;
-        background: rgba(255,255,255,0.2);
-        padding: 5px 10px;
-        border-radius: 5px;
-    }
-    #lightbox span:hover {
-        background: rgba(255,255,255,0.4);
+    @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
     }
 </style>
 </head>
@@ -116,39 +97,31 @@
 
     <!-- Navigation -->
     <nav>
-        <a href="#" onclick="showMain()">Home</a>
-        <a href="#" onclick="showGallery()">Moments</a>
-        <a href="https://music.amazon.in/user-playlists/527d1557f82d426986c8bd345d1e71a7i8n0?ref=dm_sh_bdX8uIdd93w7u0yQULD32W1Hq" target="_blank">Birthday Playlist</a>
+        <a href="#" onclick="showMain()">🏠 Home</a>
+        <a href="#" onclick="showGallery()">💖 Moments</a>
+        <a href="https://music.amazon.in/user-playlists/527d1557f82d426986c8bd345d1e71a7i8n0?ref=dm_sh_bdX8uIdd93w7u0yQULD32W1Hq" target="_blank">🎵 Birthday Playlist</a>
     </nav>
 
     <!-- Home Content -->
     <div id="main-content">
         <h1>🎉 Happy Birthday Shona 🎂</h1>
         <img class="main-img" src="shona.jpg" alt="Shona Birthday Photo">
-        <p>
-           My Love, On this special day, I just want to remind you how deeply you mean to me. You are not only the love of my life but also the light that brightens my darkest days, the warmth that comforts my soul, and the reason my heart beats a little faster every time I see you. Every moment spent with you feels like a blessing I could never have imagined. Your smile melts away my worries, your laughter is my favorite melody, and your presence makes my world feel complete.
+        <p>My Love, On this special day, I just want to remind you how deeply you mean to me. You are not only the love of my life but also the light that brightens my darkest days, the warmth that comforts my soul, and the reason my heart beats a little faster every time I see you. Every moment spent with you feels like a blessing I could never have imagined. Your smile melts away my worries, your laughter is my favorite melody, and your presence makes my world feel complete.
 
         Today is not just your birthday — it’s the celebration of the most beautiful soul I’ve ever known. I’m endlessly grateful for every memory we’ve created and excited for all the countless ones we are yet to make. May this year bring you endless joy, boundless success, and all the love your heart can hold — because you deserve nothing less than the best. And always remember, no matter what life brings, I’ll be here, loving you a little more every day.
 
         Happy Birthday, my Shona Puchu Baccha ❤️<br>
         Forever yours,<br>
-        Rishu Baccha💖
-        </p>
+        Rishu Baccha💖</p>
     </div>
 
     <!-- Gallery -->
     <div class="gallery" id="gallery">
-        <h2>💖 Our Moments 💖</h2>
+        <h2>💖 Our Precious Moments 💖</h2>
         <img src="moment1.jpg" alt="Moment 1">
         <img src="moment2.jpg" alt="Moment 2">
         <img src="moment3.jpg" alt="Moment 3">
         <img src="moment4.jpg" alt="Moment 4">
-    </div>
-
-    <!-- Lightbox -->
-    <div id="lightbox">
-        <img src="" alt="Preview">
-        <span onclick="closeLightbox()">Close ✖</span>
     </div>
 
     <script>
@@ -159,22 +132,6 @@
         function showMain() {
             document.getElementById('gallery').style.display = 'none';
             document.getElementById('main-content').style.display = 'block';
-        }
-
-        // Lightbox logic
-        const galleryImages = document.querySelectorAll('.gallery img');
-        const lightbox = document.getElementById('lightbox');
-        const lightboxImg = document.querySelector('#lightbox img');
-
-        galleryImages.forEach(img => {
-            img.addEventListener('click', () => {
-                lightboxImg.src = img.src;
-                lightbox.style.display = 'flex';
-            });
-        });
-
-        function closeLightbox() {
-            lightbox.style.display = 'none';
         }
     </script>
 </body>
